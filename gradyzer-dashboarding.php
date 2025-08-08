@@ -5,9 +5,6 @@
  * Description: Complete user dashboard framework with WooCommerce integration and messaging system
  * Version: 8.0.0
  * Author: Brian Agoi
- * Requires at least: 6.6
- * Tested up to: 6.8.1
- * Requires PHP: 7.4
  * License: GPL v3
  * Text Domain: gradyzer-dashboarding
  */
