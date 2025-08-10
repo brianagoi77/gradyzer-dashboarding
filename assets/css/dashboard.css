@@ -1,0 +1,581 @@
+/* === Gradyzer Dashboard Styles === */
+
+/* Reset and Base */
+.gradyzer-dashboard-wrapper * {
+    box-sizing: border-box;
+}
+
+.gradyzer-dashboard-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+/* Mobile Toggle Button */
+.gradyzer-mobile-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.gradyzer-mobile-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #333;
+    transition: all 0.3s ease;
+}
+
+/* Sidebar */
+.gradyzer-sidebar {
+    width: 280px;
+    background: #fff;
+    border-right: 1px solid #e5e7eb;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.gradyzer-sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.gradyzer-user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.gradyzer-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.gradyzer-user-details h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.gradyzer-user-details p {
+    margin: 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Navigation */
+.gradyzer-sidebar-nav {
+    padding: 20px 0;
+}
+
+.gradyzer-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gradyzer-nav-item {
+    margin: 0 20px 4px 20px;
+}
+
+.gradyzer-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #4b5563;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.gradyzer-nav-link:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.gradyzer-nav-item.active .gradyzer-nav-link {
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-weight: 500;
+}
+
+.gradyzer-nav-icon {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+.gradyzer-nav-label {
+    flex: 1;
+    font-size: 14px;
+}
+
+.gradyzer-counter {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gradyzer-counter-badge {
+    background: #dc2626;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Main Content */
+.gradyzer-main-content {
+    flex: 1;
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.gradyzer-topbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.gradyzer-topbar-left {
+    flex: 1;
+}
+
+.gradyzer-page-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.gradyzer-page-icon {
+    font-size: 28px;
+}
+
+.gradyzer-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.gradyzer-notifications {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gradyzer-notification-bubble {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #dc2626;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.gradyzer-notification-bubble:hover {
+    background: #b91c1c;
+    transform: scale(1.05);
+}
+
+.gradyzer-bubble-count {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 16px;
+    text-align: center;
+}
+
+.gradyzer-user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.gradyzer-user-avatar img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Content Area */
+.gradyzer-content {
+    flex: 1;
+    padding: 24px;
+    background: #f8f9fa;
+    overflow-y: auto;
+}
+
+/* Loading Overlay */
+.gradyzer-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.gradyzer-loading-spinner {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gradyzer-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1d4ed8;
+    border-radius: 50%;
+    animation: gradyzer-spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes gradyzer-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Buttons */
+.gradyzer-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+
+.gradyzer-btn-primary {
+    background: #1d4ed8;
+    color: white;
+}
+
+.gradyzer-btn-primary:hover {
+    background: #1e40af;
+}
+
+.gradyzer-btn-secondary {
+    background: #6b7280;
+    color: white;
+}
+
+.gradyzer-btn-secondary:hover {
+    background: #4b5563;
+}
+
+.gradyzer-btn-success {
+    background: #059669;
+    color: white;
+}
+
+.gradyzer-btn-success:hover {
+    background: #047857;
+}
+
+.gradyzer-btn-warning {
+    background: #d97706;
+    color: white;
+}
+
+.gradyzer-btn-warning:hover {
+    background: #b45309;
+}
+
+.gradyzer-btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.gradyzer-btn-danger:hover {
+    background: #b91c1c;
+}
+
+.gradyzer-btn-outline {
+    background: transparent;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.gradyzer-btn-outline:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.gradyzer-btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.gradyzer-btn-lg {
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+/* Forms */
+.gradyzer-form-group {
+    margin-bottom: 20px;
+}
+
+.gradyzer-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.gradyzer-form-group input,
+.gradyzer-form-group select,
+.gradyzer-form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.gradyzer-form-group input:focus,
+.gradyzer-form-group select:focus,
+.gradyzer-form-group textarea:focus {
+    outline: none;
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.gradyzer-form-group small {
+    display: block;
+    margin-top: 4px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* Error Messages */
+.gradyzer-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.gradyzer-success {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.gradyzer-warning {
+    background: #fffbeb;
+    border: 1px solid #fed7aa;
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.gradyzer-info {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1e40af;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Modal */
+.gradyzer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.gradyzer-modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.gradyzer-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gradyzer-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.gradyzer-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.gradyzer-modal-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.gradyzer-modal-body {
+    padding: 24px;
+}
+
+.gradyzer-modal-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gradyzer-mobile-toggle {
+        display: flex;
+    }
+    
+    .gradyzer-sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .gradyzer-sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .gradyzer-main-content {
+        margin-left: 0;
+    }
+    
+    .gradyzer-topbar {
+        padding: 12px 60px 12px 20px;
+    }
+    
+    .gradyzer-page-title {
+        font-size: 20px;
+    }
+    
+    .gradyzer-content {
+        padding: 16px;
+    }
+    
+    .gradyzer-modal {
+        padding: 10px;
+    }
+    
+    .gradyzer-modal-content {
+        max-height: 90vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .gradyzer-topbar {
+        padding: 10px 50px 10px 16px;
+    }
+    
+    .gradyzer-page-title {
+        font-size: 18px;
+    }
+    
+    .gradyzer-content {
+        padding: 12px;
+    }
+    
+    .gradyzer-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .gradyzer-modal-header,
+    .gradyzer-modal-body,
+    .gradyzer-modal-footer {
+        padding: 16px;
+    }
+}
